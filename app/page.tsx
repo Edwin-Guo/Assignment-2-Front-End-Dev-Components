@@ -1,10 +1,21 @@
 
-import StudentPanel from "@/components/StudentPanel";
+import StatsPanel from "@/components/StatsPanel";
 
 export default function Home() {
+  const students = [
+    { grade: 10, average: 85 },
+    { grade: 11, average: 90 },
+    { grade: 12, average: 88 },
+  ];
+
   return (
-    <StudentPanel>
-      <p>Student list will appear here.</p>
-    </StudentPanel>
+    <div className="max-w-6xl mx-auto p-6">
+      <h1 className="text-2xl font-bold mb-4">
+        Student Portal
+      </h1>
+      <StatsPanel students={students} />
+    </div>
   );
 }
+
+
