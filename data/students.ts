@@ -1,3 +1,12 @@
+/**
+ * student data
+ * Adrianne Shean Pacifico
+ * October 30, 2026
+ * has interface Student with id, firstName, lastName, grade, average
+ * also has an array of 8 students
+ * output is the exported Student type and array of students
+ */
+
 export interface Student {
     id: number;
     firstName: string;
