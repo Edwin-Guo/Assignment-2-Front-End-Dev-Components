@@ -11,10 +11,10 @@ export default function Home() {
 
   return (
     <div className="max-w-6xl mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-4">
+      {/* <h1 className="text-2xl font-bold mb-4">
         Student Portal
       </h1>
-      <StatsPanel students={students} />
+      <StatsPanel students={students} /> */}
       <StudentPortal/>
     </div>
   );

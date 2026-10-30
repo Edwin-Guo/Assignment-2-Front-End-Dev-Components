@@ -2,8 +2,9 @@
 
 import { useState } from 'react';
 import { studentList } from "@/data/studentList";
-// import SearchBox from './SearchBox';
+import SearchBox from './SearchBox';
 import AddStudent from './AddStudent';
+import StatsPanel from './StatsPanel';
 
 interface Student {
   id: number;
@@ -29,14 +30,39 @@ const StudentPortal = () => {
   const handleClear = () => {
     setStudents([]);
   }
+
+  const matching = students.filter((student) =>
+    student.firstName.toLowerCase().includes(query.toLowerCase()) || student.lastName.toLowerCase().includes(query.toLowerCase())
+  );
+
+  const handleQueryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(event.target.value)
+  }
+
+
   return (
-    <div className='bg-white rounded-2xl shadow-md p-6 max-w-6xl mx-auto sm:p-6 m-3'>
-      <AddStudent onAdd={handleAdd}/>
-  {/* <SearchBox/> */}
-      <p>Waluigi</p>
-      <button onClick={handleClear} className="mt-4 text-sm font-semibold text-slate-600 cursor-pointer">
-        Clear all
-      </button>
+    <div>
+      <section id="overview">
+        <h1 className="text-2xl font-bold mb-4">Overview</h1>
+        <StatsPanel students={students}/>
+      </section>
+
+      <section id ="add-student">
+        <h1 className="text-2xl font-bold mb-4">Add a Student</h1>
+        <div className='bg-white rounded-2xl shadow-md p-6 max-w-6xl mx-auto sm:p-6 m-3'>
+          <AddStudent onAdd={handleAdd}/>
+        </div>
+      </section>
+      <section id = "students">
+        <h1 className="text-2xl font-bold mb-4">Students</h1>
+        <div className='bg-white rounded-2xl shadow-md p-6 max-w-6xl mx-auto sm:p-6 m-3'>
+          <SearchBox query={query} onChange={handleQueryChange}/>
+          {/* <StudentList students={matching} onRemove={handleRemove} /> */}
+          <button onClick={handleClear} className="mt-4 text-sm font-semibold text-slate-600 cursor-pointer">
+            Clear all
+          </button>
+        </div>
+      </section>
     </div>
   );
 };
