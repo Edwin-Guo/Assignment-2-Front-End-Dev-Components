@@ -1,6 +1,14 @@
 "use client";
-import { useState } from "react";
+/**
+ * AddStudent
+ * Edwin Guo
+ * Oct 30, 2026
+ * Adds adding functionality to the students list, by using student portal's add
+ * Takes strings and numbers and passes values to get addeed.
+ */
 
+import { useState } from "react";
+// Uses the student portal's handle add
 interface AddStudentProps {
   onAdd: (fName: string, lName: string, gr: number, avg: number) => void;
 }
@@ -8,9 +16,9 @@ interface AddStudentProps {
 const AddStudent = ({onAdd}: AddStudentProps) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [grade, setGrade] = useState("9");
-  const [average, setAverage] = useState("70");
-
+  const [grade, setGrade] = useState("9"); // Default values displayed
+  const [average, setAverage] = useState("70"); 
+  // Sets the useState which gets added when add button is clicked
   const handleFirstNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFirstName(event.target.value);
   }
@@ -23,17 +31,21 @@ const AddStudent = ({onAdd}: AddStudentProps) => {
   const handleAverageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setAverage(event.target.value);
   }
+  // Ensures there's names presented, and clears the entries
   const handleClick = () => {
     if (firstName.trim()==="" || lastName.trim()===""){
       return; 
     }
+    // Adds the students to the array
     onAdd(firstName.trim(), lastName.trim(), parseInt(grade), parseFloat(average));
+    // Resets for the next student entry
     setFirstName("");
     setLastName("");
     setGrade("9");
     setAverage("70");
   }
   return (
+    // Inputs and add button
     <div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
