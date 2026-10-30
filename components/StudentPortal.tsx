@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { studentList } from "@/data/student";
+import { studentList } from "@/data/studentList";
 // import SearchBox from './SearchBox';
 import AddStudent from './AddStudent';
 
