@@ -36,7 +36,7 @@ const StudentCard = ({student, onRemove}: StudentCardProps) => {
     };
 
     return (
-        <div className = "rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+        <div className = "rounded-lg border border-gray-200 bg-white p-4 shadow-sm mt-5">
             {/* name and grade */}
             <h3 className = "text-lg font-semibold text-gray-900">
                 {student.firstName} {student.lastName}
