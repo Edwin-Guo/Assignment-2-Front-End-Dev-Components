@@ -54,7 +54,6 @@ const AddStudent = ({onAdd}: AddStudentProps) => {
             id = "firstName"
             value={firstName}
             onChange={handleFirstNameChange}
-            placeholder="First Name"
             className="w-full rounded-lg border border-slate-300 px-4 py-2 text-slate-900 focus:border-blue-500 focus:outline-none"/>
         </div>
 
